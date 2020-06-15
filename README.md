@@ -4,9 +4,9 @@
 # <a href="https://trello.com/b/ps1zekLG/webpage-v2" target="_blank">Task Board</a>
 # What I Learned
   <ul>
-    <li>HTML 5</li>
-    <li>CSS 3</li>
-    <li>JS</li>
-    <li>PHP</li>
+    <li>How to create a webpage with sections and smooth scroll</li>
+    <li>How to use the HTML canvas with JS</li>
+    <li>Refined my CSS knowledge</li>
+    <li>How to create a collision system from scratch</li>
     <li>That I don't like web development</li>
   </ul>
