@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>George T. - Projects</title>
+        <meta charset="UTF-8">
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#projects" onclick="javascript:ChangeTitle('Projects');">Projects</a></li>
+                    <li><a href="#about" onclick="javascript:ChangeTitle('About Me');">About Me</a></li>
+                    <li><a href="#contact" onclick="javascript:ChangeTitle('Contact');">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="projects">
+            <canvas class="canvas"></canvas>
+        </section>
+
+        <section id="about">
+            <div class="about-container">
+                <h1>George Toliashvili</h1>
+                <div class="about-content">
+                    <img src="img/bird.png" alt=""> 
+                    <p>
+                    My name is George. My passion is to explore the universe and figure out how it works. 
+                    While at the same time creating things that I'm passionate about.
+                    <br><br>
+                    I'm a self-taught programmer.
+                    I have explored game, software, web development and also machine learning.
+                    I have the most experience in game development, more precisely the Unity game engine.
+                    I have also participated in now 3 Global Game Jams as a programmer.
+                    <br><br>
+                    There is no greater education than one that is self-driven.
+                    <br>
+                    - Neil deGrasse Tyson
+                    </p>
+                </div>
+            </div>             
+        </section>
+                
+        <section id="contact">     
+            <form class="contact-form" action="contactform.php" method="post">
+                <h1>This is for business inquiries only!</h1>
+                <input type="text" name="name" placeholder="Full name">
+                <input type="text" name="email" placeholder="Your e-mail">
+                <input type="text" name="subject" placeholder="Subject">
+                <textarea name="message" placeholder="Message"></textarea>
+                <button type="submit" name="submit">SEND</button>
+            </form>
+        </section>
+
+        <div class="footer-wrapper">
+            <footer>
+                <div class="image-container">
+                    
+                </div>
+            </footer>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="canvas.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
