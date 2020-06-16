@@ -1,7 +1,6 @@
 const canvas = document.querySelector('canvas');
+const githubProjectLink = document.getElementById('github-project a');
 const c = canvas.getContext('2d');
-
-canvas.addEventListener('mousedown', MousePressed, false);
 
 const windowWidth = window.innerWidth;
 const windowHeight = window.innerHeight - 61;
@@ -9,10 +8,18 @@ const windowHeight = window.innerHeight - 61;
 canvas.width = windowWidth;
 canvas.height = windowHeight;
 
+canvas.addEventListener('mousedown', MousePressed, false);
+
 var circles = [];
 var projectText = ["C#", "UNITY", "WEB"];
+var projectName = ["Car tuner app", "Spaflash", "This webpage"];
+var projectDescOne = ["An app that allows to connect", "A never-ending experience", "Portfolio page that allows me"];
+var projectDescTwo = ["to a car and modify it realtime", "after which you get dizzy", "to showcase my projects"];
 var mainCircleRadius = 200;
 var smallCircleRadius = 100;
+var additionalImage = ["img/play.png"];
+var toggle = false;
+var githubProjectImage = new Image();
 
 function RandomIntFromRange (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -149,7 +156,7 @@ function MainCircle (xPos, yPos, radius, strokeColor) {
     }
 }
 
-function Circle (xPos, yPos, radius, strokeColor, text) {
+function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDescOne, projectDescTwo) {
     this.x = xPos;
     this.y = yPos;
     this.velocity = {
@@ -160,6 +167,10 @@ function Circle (xPos, yPos, radius, strokeColor, text) {
     this.color = strokeColor;
     this.mass = 1;
     this.text = text;
+    this.projectName = projectName;
+    this.projectDescOne = projectDescOne;
+    this.projectDescTwo = projectDescTwo;
+    this.toggle = false;
 
     this.update = circles => {
         this.draw();
@@ -206,14 +217,15 @@ function Circle (xPos, yPos, radius, strokeColor, text) {
     this.interacted = (mouseX, mouseY) => {
         if (Distance(circles[0].x, circles[0].y, mouseX, mouseY) - mainCircleRadius > 0) {
             if (Distance(this.x, this.y, mouseX, mouseY) - this.radius < 0) {
+                this.toggle = true;
                 this.color = 'rgb(187, 13, 13, 1)';
-                c.fillStyle = 'rgb(187, 13, 13, 1)';
+                c.fillStyle = this.color;
             }else {
+                this.toggle = false;
                 this.color = strokeColor;
                 c.fillStyle = this.color;
             }
-        }
-        
+        }  
 
         this.draw();
     }
@@ -228,8 +240,29 @@ function Circle (xPos, yPos, radius, strokeColor, text) {
         c.font = '50px Fira Code';
         c.fillStyle = this.color;
         c.fillText(this.text, this.x, this.y);
+        if (this.toggle) {
+            c.font = '35px Fira Code';
+            c.fillText(this.projectName, windowWidth / 2, windowHeight / 2 - 100);
+            c.font = '20px Fira Code';
+            c.fillText(this.projectDescOne, windowWidth / 2, windowHeight / 2 - 50);
+            c.fillText(this.projectDescTwo, windowWidth / 2, windowHeight / 2 - 25);
+            CreateProjectPictures();
+        }
         c.closePath();
     }
+}
+
+function CreateProjectPictures (addImage) {
+    githubProjectImage.src = 'img/github.png';
+    
+    if (addImage != null) {
+        var newImage = new Image();
+        newImage.src = addImage;
+        c.drawImage(newImage, windowWidth / 2 + 30, windowHeight / 2 + 18, 80, 80);
+        c.drawImage(githubProjectImage, windowWidth / 2 - 130, windowHeight / 2, 115, 115);
+    }
+    
+    c.drawImage(githubProjectImage, windowWidth / 2 - 60, windowHeight / 2 + 18, 115, 115);
 }
 
 function Init () {
@@ -243,6 +276,9 @@ function Init () {
         var x = RandomIntFromRange(smallCircleRadius, windowWidth - smallCircleRadius);
         var y = RandomIntFromRange(smallCircleRadius, windowHeight - smallCircleRadius);
         var text = projectText[i];
+        var name = projectName[i];
+        var descOne = projectDescOne[i];
+        var descTwo = projectDescTwo[i];
 
         for (var j = 0; j < circles.length; j++) {
             if (j == 0) {
@@ -263,7 +299,7 @@ function Init () {
             }
         }
 
-        circles.push(new Circle(x, y, smallCircleRadius, color, text));
+        circles.push(new Circle(x, y, smallCircleRadius, color, text, name, descOne, descTwo));
     }
 }
 
