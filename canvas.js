@@ -2,8 +2,10 @@ const canvas = document.querySelector('canvas');
 const githubProjectLink = document.getElementById('github-project a');
 const c = canvas.getContext('2d');
 
+const canvasOffset = 61;
+
 const windowWidth = window.innerWidth;
-const windowHeight = window.innerHeight - 61;
+const windowHeight = window.innerHeight - canvasOffset;
 
 canvas.width = windowWidth;
 canvas.height = windowHeight;
@@ -15,11 +17,24 @@ var projectText = ["C#", "UNITY", "WEB"];
 var projectName = ["Car tuner app", "Spaflash", "This webpage"];
 var projectDescOne = ["An app that allows to connect", "A never-ending experience", "Portfolio page that allows me"];
 var projectDescTwo = ["to a car and modify it realtime", "after which you get dizzy", "to showcase my projects"];
+
 var mainCircleRadius = 200;
 var smallCircleRadius = 100;
-var additionalImage = ["img/play.png"];
-var toggle = false;
+
+var additionalImage = ["", "img/play.jpg", ""];
+var additionalLink = ["", "https://play.google.com/store/apps/details?id=com.flash.spaflash", ""];
+var githubLink = ["https://github.com/FlasHGT/Windows-APP", "https://github.com/FlasHGT/Spaflash", "https://github.com/FlasHGT/Webpage-V2"];
 var githubProjectImage = new Image();
+var newImage = new Image();
+var xNewImage = windowWidth / 2 + 30;
+var xGitImage = windowWidth / 2 - 130;
+var heightOfImages = windowHeight / 2 + 20;
+var imageSize = 100;
+
+var toggle = false;
+
+var mouseX;
+var mouseY;
 
 function RandomIntFromRange (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -98,11 +113,11 @@ function ResolveCollision(particle, otherParticle) {
 }
 
 function MousePressed (event) {
-    var mouseX = event.pageX;
-    var mouseY = event.pageY;
+    mouseX = event.pageX;
+    mouseY = event.pageY;
 
     for (var i = 0; i < circles.length; i++) {
-        circles[i].interacted(mouseX, mouseY);
+        circles[i].interacted();
     }
 }
 
@@ -129,8 +144,8 @@ function MainCircle (xPos, yPos, radius, strokeColor) {
         }
     }
 
-    this.interacted = (mouseX, mouseY) => {
-        if (Distance(this.x, this.y, mouseX, mouseY) - this.radius > 0) {
+    this.interacted = () => {
+        if (Distance(this.x, this.y + canvasOffset, mouseX, mouseY) - this.radius > 0) {
             for (var i = 0; i < circles.length; i++) {  
                     if (Distance(circles[i].x, circles[i].y, mouseX, mouseY) - smallCircleRadius < 0) {
                         this.color = 'rgb(187, 13, 13, 1)';
@@ -156,7 +171,7 @@ function MainCircle (xPos, yPos, radius, strokeColor) {
     }
 }
 
-function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDescOne, projectDescTwo) {
+function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDescOne, projectDescTwo, githubLink, additionalLink, circleSpotInArray) {
     this.x = xPos;
     this.y = yPos;
     this.velocity = {
@@ -171,6 +186,9 @@ function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDesc
     this.projectDescOne = projectDescOne;
     this.projectDescTwo = projectDescTwo;
     this.toggle = false;
+    this.githubLink = githubLink;
+    this.additionalLink = additionalLink;
+    this.circleSpotInArray = circleSpotInArray;
 
     this.update = circles => {
         this.draw();
@@ -214,8 +232,8 @@ function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDesc
         this.y += this.velocity.y;
     }
 
-    this.interacted = (mouseX, mouseY) => {
-        if (Distance(circles[0].x, circles[0].y, mouseX, mouseY) - mainCircleRadius > 0) {
+    this.interacted = () => {
+        if (Distance(circles[0].x, circles[0].y + canvasOffset, mouseX, mouseY) - mainCircleRadius > 0) {
             if (Distance(this.x, this.y, mouseX, mouseY) - this.radius < 0) {
                 this.toggle = true;
                 this.color = 'rgb(187, 13, 13, 1)';
@@ -225,9 +243,25 @@ function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDesc
                 this.color = strokeColor;
                 c.fillStyle = this.color;
             }
-        }  
+        }else if (this.toggle) {
+            this.linkPressed(githubLink, additionalLink);
+        }
 
         this.draw();
+    }
+
+    this.linkPressed = (gitLink, addLink) => {
+        if (additionalImage[this.circleSpotInArray] != "") {
+            if (xNewImage - 2 < mouseX && xNewImage + 100 > mouseX && heightOfImages + 58 < mouseY && heightOfImages + 160 > mouseY) {
+                window.open(addLink);
+            }else if (xGitImage - 7 < mouseX && xGitImage + 103 > mouseX && heightOfImages + 58 < mouseY && heightOfImages + 160 > mouseY) {
+                window.open(gitLink);
+            }
+        }else {
+            if (windowWidth / 2 + 50 > mouseX && windowWidth / 2 - 60 < mouseX && windowHeight / 2 + 180 > mouseY && windowHeight / 2 + 70 < mouseY) {
+                window.open(gitLink);
+            }
+        }
     }
 
     this.draw = () => {
@@ -246,23 +280,24 @@ function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDesc
             c.font = '20px Fira Code';
             c.fillText(this.projectDescOne, windowWidth / 2, windowHeight / 2 - 50);
             c.fillText(this.projectDescTwo, windowWidth / 2, windowHeight / 2 - 25);
-            CreateProjectPictures();
+            CreateProjectPictures(additionalImage[this.circleSpotInArray], this.githubLink, this.additionalLink);
         }
         c.closePath();
     }
 }
 
 function CreateProjectPictures (addImage) {
-    githubProjectImage.src = 'img/github.png';
-    
-    if (addImage != null) {
-        var newImage = new Image();
-        newImage.src = addImage;
-        c.drawImage(newImage, windowWidth / 2 + 30, windowHeight / 2 + 18, 80, 80);
-        c.drawImage(githubProjectImage, windowWidth / 2 - 130, windowHeight / 2, 115, 115);
+    githubProjectImage.src = 'img/github_white.png';
+    newImage.src = addImage;
+
+    if (addImage != "") {        
+        c.drawImage(newImage, xNewImage, heightOfImages, imageSize, imageSize);
+        c.drawImage(githubProjectImage, xGitImage, heightOfImages, imageSize, imageSize);
+    }else {
+        c.drawImage(githubProjectImage, windowWidth / 2 - 55, windowHeight / 2 + 18, imageSize, imageSize);
     }
     
-    c.drawImage(githubProjectImage, windowWidth / 2 - 60, windowHeight / 2 + 18, 115, 115);
+    
 }
 
 function Init () {
@@ -279,6 +314,8 @@ function Init () {
         var name = projectName[i];
         var descOne = projectDescOne[i];
         var descTwo = projectDescTwo[i];
+        var git = githubLink[i];
+        var aLink = additionalLink[i];
 
         for (var j = 0; j < circles.length; j++) {
             if (j == 0) {
@@ -299,7 +336,7 @@ function Init () {
             }
         }
 
-        circles.push(new Circle(x, y, smallCircleRadius, color, text, name, descOne, descTwo));
+        circles.push(new Circle(x, y, smallCircleRadius, color, text, name, descOne, descTwo, git, aLink, i));
     }
 }
 
