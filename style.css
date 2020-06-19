@@ -48,6 +48,7 @@ body {
 
 .navbar a:hover {
     color: rgb(187, 13, 13);
+    transition: 0.5s;
 }
 
 section {
@@ -112,12 +113,12 @@ section {
     width: 100%;
     border: 1px solid white;
     color: white;
-    background:rgba(0, 0, 0, 0);
+    background:black;
 }
 
 .contact-form button:hover {
-    background: white;
-    color: black;
+    color: rgb(187, 13, 13);;
+    border: 1px solid rgb(187, 13, 13);;
 }
 
 .contact-form h1 {
@@ -141,4 +142,40 @@ footer {
     min-height: 100%;
     border-top: 1px solid white;
     text-align: center;
+}
+
+footer img {
+    margin-top: 50px;
+    margin-right: 50px;
+    width: 75px;
+    height: 75px;
+}
+
+.media {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-53%, -50%);
+}
+
+.media a {
+    color: inherit;
+}
+
+.media li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px 30px;
+    font-size: 20px;
+    padding: 15px 20px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.media li:hover {
+    color: rgb(187, 13, 13);
+    border: 1px solid rgb(187, 13, 13);
+    transition: 0.5s;
 }

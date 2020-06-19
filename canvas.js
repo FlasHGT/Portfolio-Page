@@ -10,7 +10,8 @@ const windowHeight = window.innerHeight - canvasOffset;
 canvas.width = windowWidth;
 canvas.height = windowHeight;
 
-canvas.addEventListener('mousedown', MousePressed, false);
+canvas.addEventListener('mousemove', MouseMove, false);
+canvas.addEventListener('click', MousePressed, false);
 
 var circles = [];
 var projectText = ["C#", "UNITY", "WEB"];
@@ -112,12 +113,18 @@ function ResolveCollision(particle, otherParticle) {
     }
 }
 
-function MousePressed (event) {
+function MouseMove (event) {
     mouseX = event.pageX;
     mouseY = event.pageY;
 
     for (var i = 0; i < circles.length; i++) {
         circles[i].interacted();
+    }
+}
+
+function MousePressed () {
+    for (var i = 1; i < circles.length; i++) {
+        circles[i].imagesPressed();
     }
 }
 
@@ -147,15 +154,12 @@ function MainCircle (xPos, yPos, radius, strokeColor) {
     this.interacted = () => {
         if (Distance(this.x, this.y + canvasOffset, mouseX, mouseY) - this.radius > 0) {
             for (var i = 0; i < circles.length; i++) {  
-                    if (Distance(circles[i].x, circles[i].y, mouseX, mouseY) - smallCircleRadius < 0) {
-                        this.color = 'rgb(187, 13, 13, 1)';
-                        c.fillStyle = 'rgb(187, 13, 13, 1)';
+                if (Distance(circles[i].x, circles[i].y + canvasOffset, mouseX, mouseY) - smallCircleRadius < 0) {
+                    this.color = 'rgb(187, 13, 13, 1)';
+                    c.fillStyle = 'rgb(187, 13, 13, 1)';
 
-                        break;
-                    }else {
-                        this.color = strokeColor;
-                        c.fillStyle = this.color;
-                    }
+                    break;
+                }
             }
           }
 
@@ -234,20 +238,28 @@ function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDesc
 
     this.interacted = () => {
         if (Distance(circles[0].x, circles[0].y + canvasOffset, mouseX, mouseY) - mainCircleRadius > 0) {
-            if (Distance(this.x, this.y, mouseX, mouseY) - this.radius < 0) {
+            if (Distance(this.x, this.y + canvasOffset, mouseX, mouseY) - this.radius < 0) {
                 this.toggle = true;
                 this.color = 'rgb(187, 13, 13, 1)';
                 c.fillStyle = this.color;
             }else {
-                this.toggle = false;
-                this.color = strokeColor;
-                c.fillStyle = this.color;
+                for (var i = 1; i < circles.length; i++) {
+                    if (circles[i].toggle && circles[i] != this) {
+                        this.toggle = false;
+                        this.color = strokeColor;
+                        c.fillStyle = this.color;
+                    }
+                }
             }
-        }else if (this.toggle) {
-            this.linkPressed(githubLink, additionalLink);
         }
 
         this.draw();
+    }
+
+    this.imagesPressed = () => {
+        if (this.toggle) {
+            this.linkPressed(githubLink, additionalLink);
+        }        
     }
 
     this.linkPressed = (gitLink, addLink) => {
