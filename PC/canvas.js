@@ -285,6 +285,7 @@ function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDesc
         c.textBaseline = 'middle';
         c.font = '50px Fira Code';
         c.fillStyle = this.color;
+        c.lineWidth = 5;
         c.fillText(this.text, this.x, this.y);
         if (this.toggle) {
             c.font = '35px Fira Code';
@@ -306,10 +307,8 @@ function CreateProjectPictures (addImage) {
         c.drawImage(newImage, xNewImage, heightOfImages, imageSize, imageSize);
         c.drawImage(githubProjectImage, xGitImage, heightOfImages, imageSize, imageSize);
     }else {
-        c.drawImage(githubProjectImage, windowWidth / 2 - 55, windowHeight / 2 + 18, imageSize, imageSize);
+        c.drawImage(githubProjectImage, windowWidth / 2 - 50, windowHeight / 2 + 18, imageSize, imageSize);
     }
-    
-    
 }
 
 function Init () {
@@ -334,7 +333,7 @@ function Init () {
                 if (Distance(x, y, circles[j].x, circles[j].y) - mainCircleRadius - smallCircleRadius <= 0 ) {
                     x = RandomIntFromRange(smallCircleRadius, windowWidth - smallCircleRadius);
                     y = RandomIntFromRange(smallCircleRadius, windowHeight - smallCircleRadius);
-
+                    
                     j--;
                 }
             }

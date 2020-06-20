@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>George T. - Projects</title>
         <meta charset="UTF-8">
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+
         <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <header>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#projects" onclick="javascript:ChangeTitle('Projects');">Projects</a></li>
-                    <li><a href="#about" onclick="javascript:ChangeTitle('About Me');">About Me</a></li>
-                    <li><a href="#contact" onclick="javascript:ChangeTitle('Contact');">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-
         <section id="projects">          
-            <canvas class="canvas"></canvas>
+            <nav class="navbar">
+                <a class="nav-dropdown-menu"></a>
+            </nav>
         </section>
 
         <section id="about">
@@ -68,10 +61,5 @@
                 </div>
             </footer>
         </div>
-
-        <script src="https://kit.fontawesome.com/0d63444a97.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="canvas.js"></script>
-        <script src="main.js"></script>
     </body>
 </html>
