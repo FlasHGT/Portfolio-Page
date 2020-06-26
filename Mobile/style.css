@@ -4,16 +4,63 @@
     font-family: 'Fira Code', monospace;
 }
 
-.navbar {
+nav {
+    top: 0;
     z-index: 1;
+    width: 100%;
     position: fixed;
+}
+
+nav.open {
+    background-color: black;
+}
+
+nav.open div {
+    color: rgb(187, 13, 13);
+    border-bottom: 1px solid white;
+}
+
+nav.open ul {
+    height: auto;
+}
+
+.nav-dropdown-menu-wrapper {
+    display: block;
+    width: 100%;
+    color: white;
+    height: 40px;
+    font-size: 2em;
+    padding-bottom: 10px;
+}
+
+.nav-dropdown-menu {
+    padding-right: 10px;
+    float: right;
+}
+
+nav ul {
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+}
+
+nav ul li {
+    padding: 10px;
+    float: none;
+    text-align: left;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: inherit;
 }
 
 body {
     background-size: 100% 100%;
     line-height: 1.6;
     height: 100vh;
-
 }
 
 section {
@@ -38,8 +85,8 @@ section {
 
 .about-container h1 {
     width: 100%;
-    margin-bottom: 30px;
-    border-bottom: 1px solid white;
+    margin: 30px 0px;
+    border-bottom: 2px solid white;
 }
 
 .about-content {
@@ -60,7 +107,8 @@ section {
 }
 
 .contact-form {
-    transform: translate(0%, -80%);
+    transform: translate(0%, -75%);
+    width: 80%;
 }
 
 .contact-form input {
@@ -68,7 +116,7 @@ section {
 }
 
 .contact-form input,textarea{
-    width: 80%;
+    width: 100%;
     background:rgba(0, 0, 0, 0);
     border: none;
     border-bottom: 1px solid grey;
@@ -83,8 +131,8 @@ section {
 .contact-form button {
     transform: translate(0%, 90%);
     height: 15%;
-    width: 80%;
-    border: 1px solid white;
+    width: 100%;
+    border: 2px solid white;
     color: white;
     background:black;
     font-size: 20px;
@@ -92,14 +140,19 @@ section {
 
 .contact-form button:hover {
     color: rgb(187, 13, 13);;
-    border: 1px solid rgb(187, 13, 13);;
+    border: 2px solid rgb(187, 13, 13);;
+}
+
+.contact-form-h1-wrapper {
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    width: 100%;
+    border-bottom: 2px solid white;
+
 }
 
 .contact-form h1 {
-    padding-bottom: 10px;
-    margin-bottom: 40px;
     color: white;
-    border-bottom: 1px solid white;
 }
 
 .footer-wrapper {
@@ -115,7 +168,7 @@ footer {
     width: 100%;
     overflow: hidden;
     min-height: 100%;
-    border-top: 1px solid white;
+    border-top: 3px solid white;
     text-align: center;
 }
 
@@ -144,7 +197,7 @@ footer img {
     font-size: 20px;
     padding: 10px 15px;
     color: white;
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 50%;
     transition: 0.5s;
 }

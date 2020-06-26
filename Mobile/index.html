@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>George T. - Projects</title>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
@@ -11,8 +13,16 @@
     </head>
     <body>
         <section id="projects">          
-            <nav class="navbar">
-                <a class="nav-dropdown-menu"></a>
+            <nav>
+                <div class="nav-dropdown-menu-wrapper">
+                    <a class="nav-dropdown-menu"><i class="fas fa-align-justify" aria-hidden="true"></i></a>
+                </div>
+                
+                <ul>
+                    <li><a href="#projects" onclick="javascript:ChangeTitle('Projects');">Projects</a></li>
+                    <li><a href="#about" onclick="javascript:ChangeTitle('About Me');">About Me</a></li>
+                    <li><a href="#contact" onclick="javascript:ChangeTitle('Contact');">Contact</a></li>
+                </ul>
             </nav>
         </section>
 
@@ -40,7 +50,9 @@
                 
         <section id="contact">     
             <form class="contact-form" action="contactform.php" method="post">
-                <h1>This is for business inquiries only!</h1>
+                <div class="contact-form-h1-wrapper">
+                    <h1>This is for business inquiries only!</h1>
+                </div>
                 <input type="text" name="name" placeholder="Full name">
                 <input type="text" name="email" placeholder="Your e-mail">
                 <input type="text" name="subject" placeholder="Subject">
@@ -61,5 +73,9 @@
                 </div>
             </footer>
         </div>
+
+        <script src="https://kit.fontawesome.com/0d63444a97.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="main.js"></script>
     </body>
 </html>
