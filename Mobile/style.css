@@ -207,3 +207,19 @@ footer img {
     border: 1px solid rgb(187, 13, 13);
     transition: 0.5s;
 }
+
+@media only screen and (min-width: 768px) {
+    .about-content img {
+        width: 75%;
+    }
+
+    .media li {
+        margin-right: 30px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .about-content img {
+        width: 65%;
+    }
+}
