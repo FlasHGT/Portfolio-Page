@@ -156,7 +156,6 @@ function MainCircle (xPos, yPos, radius, strokeColor) {
             for (var i = 0; i < circles.length; i++) {  
                 if (Distance(circles[i].x, circles[i].y + canvasOffset, mouseX, mouseY) - smallCircleRadius < 0) {
                     this.color = 'rgb(187, 13, 13, 1)';
-                    c.fillStyle = 'rgb(187, 13, 13, 1)';
 
                     break;
                 }
@@ -241,13 +240,12 @@ function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDesc
             if (Distance(this.x, this.y + canvasOffset, mouseX, mouseY) - this.radius < 0) {
                 this.toggle = true;
                 this.color = 'rgb(187, 13, 13, 1)';
-                c.fillStyle = this.color;
+                
             }else {
                 for (var i = 1; i < circles.length; i++) {
                     if (circles[i].toggle && circles[i] != this) {
                         this.toggle = false;
                         this.color = strokeColor;
-                        c.fillStyle = this.color;
                     }
                 }
             }
