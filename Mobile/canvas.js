@@ -1,3 +1,7 @@
+// HOW TO IMPROVE 
+// get the resolution of the device and then get ratios of the height and width against 
+// the default values, then multiply the values with this ratio to get the appropriate behaviour
+
 const canvas = document.querySelector('canvas');
 const githubProjectLink = document.getElementById('github-project a');
 const c = canvas.getContext('2d');
@@ -243,14 +247,15 @@ function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDesc
 
     this.linkPressed = (gitLink, addLink) => {
         if (additionalImage[this.circleSpotInArray] != "") {
-            if (xNewImage - 2 < mouseX && xNewImage + 100 > mouseX && heightOfImages + 58 < mouseY && heightOfImages + 160 > mouseY) {
+            if (xNewImage - imageSize + 47 < mouseX && xNewImage + imageSize + 2 > mouseX && heightOfImages - imageSize + 48 < mouseY && heightOfImages + imageSize > mouseY) {
                 window.open(addLink);
-            }else if (xGitImage - 7 < mouseX && xGitImage + 103 > mouseX && heightOfImages + 58 < mouseY && heightOfImages + 160 > mouseY) {
+               
+            }else if (xGitImage - imageSize + 47 < mouseX && xGitImage + imageSize + 2 > mouseX && heightOfImages - imageSize + 48 < mouseY && heightOfImages + imageSize > mouseY) {
                 window.open(gitLink);
             }
         }else {
-            if (windowWidth / 2 + 50 > mouseX && windowWidth / 2 - 60 < mouseX && windowHeight / 2 + 180 > mouseY && windowHeight / 2 + 70 < mouseY) {
-                window.open(gitLink);
+            if (windowWidth / 2 + imageSize - 24 > mouseX && windowWidth / 2 - imageSize + 22 < mouseX && windowHeight / 2 + imageSize + 19 > mouseY && windowHeight / 2 - imageSize + 67 < mouseY) {
+                window.open(gitLink);     
             }
         }
     }
@@ -272,7 +277,7 @@ function Circle (xPos, yPos, radius, strokeColor, text, projectName, projectDesc
             c.font = '10px Fira Code';
             c.fillText(this.projectDescOne, windowWidth / 2, windowHeight / 2 - 30); //
             c.fillText(this.projectDescTwo, windowWidth / 2, windowHeight / 2 - 5); //
-            CreateProjectPictures(additionalImage[this.circleSpotInArray], this.githubLink, this.additionalLink);
+            CreateProjectPictures(additionalImage[this.circleSpotInArray], this.githubLink, this.additionalLink);         
         }
         c.closePath();
     }
@@ -286,12 +291,13 @@ function CreateProjectPictures (addImage) {
         c.drawImage(newImage, xNewImage, heightOfImages, imageSize, imageSize);
         c.drawImage(githubProjectImage, xGitImage, heightOfImages, imageSize, imageSize);
     }else {
-        c.drawImage(githubProjectImage, windowWidth / 2 - 25, windowHeight / 2 + 18, imageSize, imageSize); // check the PC canvas script for the original values, get the ratio of the resolutions and then multiply that variable with the current value
+        c.drawImage(githubProjectImage, windowWidth / 2 - 25, windowHeight / 2 + 18, imageSize, imageSize); 
     }
+    
 }
 
 function Init () {
-    if (windowWidth <= 768 && windowWidth > 400) { 
+    if (windowWidth <= 768 && windowWidth > 500) { 
         smallCircleRadius = 60;
     }
 
