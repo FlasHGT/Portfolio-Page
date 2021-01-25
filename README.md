@@ -4,7 +4,7 @@
 # <a href="https://trello.com/b/ps1zekLG/webpage-v2" target="_blank">Task Board</a>
 # What I Learned
   <ul>
-    <li>JavaScript</li>
+    <li>The basics of JavaScript</li>
     <li>CSS</li>
     <li>HTML</li>
   </ul>
