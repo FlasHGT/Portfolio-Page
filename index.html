@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>George T. - Portfolio</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/lightbox.min.css"/>
+    </head>
+
+    <body>
+        <nav>
+            <div id="nav-default">
+                <ul>
+                    <li><a class="nav-btn" href="#home">Home</a></li>
+                    <li><a class="nav-btn" href="#about">About Me</a></li>
+                    <li><a class="nav-btn" href="#projects">Projects</a></li>
+                    <li><a class="nav-btn" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section id="home">          
+            <div class="bg-overlay">
+                <div id="home-wrapper">
+                    <h1>George Toliashvili</h1>
+                    <h2>Portfolio page</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="rotate" id="rotate-0"><a href="images/about-bg-image-large-0.jpg" data-lightbox="about-gallery"><img src="images/about-bg-image-large-0.jpg" alt=""></a></div>
+            <div class="rotate" id="rotate-1"><a href="images/about-bg-image-large-1.jpg" data-lightbox="about-gallery"><img src="images/about-bg-image-large-1.jpg" alt=""></a></div>
+            <div class="rotate" id="rotate-2"><a href="images/about-bg-image-large-2.jpg" data-lightbox="about-gallery"><img src="images/about-bg-image-large-2.jpg" alt=""></a></div>
+            
+            <div class="bg-overlay">
+                <div id="about-container">
+                    <h1 class="section-title">About me</h1>
+                    <div id="about-content">                     
+                        <div>
+                            <p>
+                                I'm a self-taught programmer.
+                                I have explored <i>game</i>, <i>software</i>, <i>web development</i> and also<i> machine learning</i>.
+                                I have the most experience in game development, more precisely the <a class="about-link" href="https://unity.com" target="_blank">Unity game engine</a>.
+                                I have also participated in now 4 Global Game Jams as a programmer.
+                                <br>
+                                My passion is to explore the universe and figure out how it works. 
+                                While at the same time creating things that I'm passionate about.
+                            </p>
+                                
+                            <p id="top">My <strong>TOP 3</strong> programming languages:</p>
+                            <ol>
+                                <li>C#</li>
+                                <li>C++</li>
+                                <li>JavaScript</li>
+                            </ol>
+
+                            <p id="more">
+                                I'm currently studying Computer Science at University of Latvia. I don't have a lot of work experience
+                                yet, but I worked in MadSword (a game development company) during one of my summer breaks, where sadly
+                                I didn't work as a programmer, but rather as a QA tester, I wasn't required to create automatic tests,
+                                but I decided to make my life easier, so I created browser based tests using C#.
+                                I have a decent amount of personal projects that are all quite different, you can take a look at them on
+                                <a class="about-link" href="https://github.com/FlasHGT" target="_blank">my github page</a>.
+                            </p>
+
+                            <button type="button" id="more-button" onclick="More()"><i id="more-button-icon" class="fas fa-arrow-down"></i></button>
+                        </div>
+                        
+                    </div>
+                </div>   
+            </div>                      
+        </section>
+
+        <section id="projects">          
+            <div class="bg-overlay">
+                <div id="slider">
+                    <div id="slides-container">
+                        <div id="slides">
+                            <input type="radio" name="radio-btn" id="radio1">
+                            <input type="radio" name="radio-btn" id="radio2">
+                            <input type="radio" name="radio-btn" id="radio3">
+                            <input type="radio" name="radio-btn" id="radio4">
+    
+                            <div class="slide-container first">
+                                <h1 class="section-title">Spaflash</h1>
+                                
+                                <div class="picture-wrap">
+                                    <img src="images/about-bg-image-large-0.jpg" alt="">
+                                </div>
+                                
+                                <div class="main-content-wrap">
+                                    <div class="section-desc">
+                                        <h2>Description</h2>
+                                        <p>
+                                            Spaflash is a 2D game made with Unity, the pixel art and UI was 
+                                            created using Adobe Photoshop. The game is score based, so you are
+                                            competing with others for the highest score, as you get further the
+                                            game gets more difficult.
+                                        </p>
+                                    </div> 
+        
+                                    <div class="section-learn">
+                                        <h2>What I learned</h2>
+                                        <ul>
+                                            <li>How to use coroutines</li>
+                                            <li>Implement object poolers</li>
+                                            <li>How to use enums and switch statements</li>
+                                            <li>Create pixel art using Adobe Photoshop</li>
+                                            <li>Create UI elements using Adobe Photoshop</li>
+                                        </ul>
+                                    </div>
+        
+                                    <div class="section-tech">
+                                        <h2>Technologies used</h2>
+                                        <ul>
+                                            <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank">C#</a></li>
+                                            <li><a href="https://unity.com" target="_blank">Unity</a></li>
+                                            <li><a href="https://www.adobe.com/products/photoshop.html" target="_blank">Photoshop</a></li>
+                                            <li><a href="https://www.audacityteam.org" target="_blank">Audacity</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+    
+                                <div class="section-footer social-parent">
+                                    <a class="social" href="https://play.google.com/store/apps/details?id=com.flash.spaflash" target="_blank"><i class="fab fa-google-play" aria-hidden="true"></i></a>
+                                    <a class="social" href="https://github.com/FlasHGT/Spaflash" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+    
+                            <div class="slide-container">
+                                <h1 class="section-title">Go To Sleep</h1>
+                                
+                                <div class="picture-wrap">
+                                    <img src="images/about-bg-image-large-0.jpg" alt="">
+                                </div>
+                                
+                                <div class="main-content-wrap">
+                                    <div class="section-desc">
+                                        <h2>Description</h2>
+                                        <p>
+                                            Go To Sleep is an app written in Java using Android
+                                            Studio. The main purpose of this app is to help
+                                            people fix their sleeping schedule, the user chooses
+                                            a time range and the settings that will work during the
+                                            set time thus preventing the user from using their phone.
+                                            This app can also be used to limit somebodies
+                                            phone usage at certain times of the day.
+                                        </p>
+                                    </div> 
+        
+                                    <div class="section-learn">
+                                        <h2>What I learned</h2>
+                                        <ul>
+                                            <li>The Basics of Java</li>
+                                            <li>Android Studio Development Environment</li>
+                                            <li>Improved my Understanding of UI/UX Design</li>
+                                        </ul>
+                                    </div>
+        
+                                    <div class="section-tech">
+                                        <h2>Technologies used</h2>
+                                        <ul>
+                                            <li><a href="https://www.java.com/en/" target="_blank">Java</a></li>
+                                            <li><a href="https://developer.android.com" target="_blank">Android Studio</a></li>
+    
+                                        </ul>
+                                    </div>
+                                </div>
+    
+                                <div class="section-footer social-parent">
+                                    <a class="social" href="https://play.google.com/store/apps/details?id=com.flash.gotosleep" target="_blank"><i class="fab fa-google-play" aria-hidden="true"></i></a>
+                                    <a class="social" href="https://github.com/FlasHGT/Go-To-Sleep" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+    
+                            <div class="slide-container">
+                                <h1 class="section-title">Car Tuner</h1>
+                                
+                                <div class="picture-wrap">
+                                    <img src="images/about-bg-image-large-0.jpg" alt="">
+                                </div>
+                                
+                                <div class="main-content-wrap">
+                                    <div class="section-desc">
+                                        <h2>Description</h2>
+                                        <p>
+                                            This project is unfinished. The point of this app was to create software
+                                            that would communicate with a car through a COM port, the app would gather
+                                            data from the car and output that in the software, then the data can be 
+                                            manipulated and imported back in to the car. The user could also 
+                                            import/export data to an external device.
+                                        </p>
+                                    </div> 
+        
+                                    <div class="section-learn">
+                                        <h2>What I learned</h2>
+                                        <ul>
+                                            <li>How to communicate with a device using COM ports</li>
+                                            <li>How to implement data reading/writing from a COM port</li>
+                                            <li>Creating systems that allow the user to manipulate Unity's UI objects</li>
+                                            <li>Data reading from a file and writing to file</li>
+                                        </ul>
+                                    </div>
+        
+                                    <div class="section-tech">
+                                        <h2>Technologies used</h2>
+                                        <ul>
+                                            <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank">C#</a></li>
+                                            <li><a href="https://unity.com" target="_blank">Unity</a></li>
+                                        </ul>
+                                    </div>
+                                </div>                             
+    
+                                <div class="section-footer social-parent">
+                                    <a class="social" href="https://github.com/FlasHGT/Car-Tuner" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+    
+                            <div class="slide-container">
+                                <h1 class="section-title">This Website</h1>
+                                
+                                <div class="picture-wrap">
+                                    <img src="images/about-bg-image-large-0.jpg" alt="">
+                                </div>
+
+                                <div class="main-content-wrap">
+                                    <div class="section-desc">
+                                        <h2>Description</h2>
+                                        <p>
+                                            I decided to create a portfolio page for myself to
+                                            showcase my projects, but more importantly I wanted
+                                            to learn some Web Development, this is my first 
+                                            front-end only project.
+                                        </p>
+                                    </div> 
+        
+                                    <div class="section-learn">
+                                        <h2>What I learned</h2>
+                                        <ul>
+                                            <li>Basics of Javascript</li>
+                                            <li>CSS</li>
+                                            <li>HTML 5</li>
+                                            <li>WEB design principles</li>
+                                        </ul>
+                                    </div>
+        
+                                    <div class="section-tech">
+                                        <h2>Technologies used</h2>
+                                        <ul>
+                                            <li><a href="https://www.javascript.com" target="_blank">JavaScript</a></li>
+                                            <li><a href="https://en.wikipedia.org/wiki/CSS" target="_blank">CSS</a></li>
+                                            <li><a href="https://en.wikipedia.org/wiki/HTML#:~:text=Hypertext%20Markup%20Language%20(HTML)%20is,scripting%20languages%20such%20as%20JavaScript." target="_blank">HTML</a></li>
+                                        </ul>
+                                    </div>
+                                </div>                             
+    
+                                <div class="section-footer social-parent">
+                                    <a class="social" href="https://github.com/FlasHGT/Webpage" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="navigation-manual">
+                        <label for="radio1" class="manual-btn" onclick="ChangeActiveDot(this)"></label>
+                        <label for="radio2" class="manual-btn" onclick="ChangeActiveDot(this)"></label>
+                        <label for="radio3" class="manual-btn" onclick="ChangeActiveDot(this)"></label>
+                        <label for="radio4" class="manual-btn" onclick="ChangeActiveDot(this)"></label>
+                    </div>
+                </div>            
+            </div>
+        </section>
+                
+        <section id="contact">   
+            <div class="bg-overlay">
+                <div id="contact-wrap">
+                    <h1 class="section-title">Contact Me</h1>
+                
+                    <div id="error-message"></div>
+
+                    <form id="contact-form" action="https://www.w3schools.com/action_page.php">
+                        <h2>Name</h2>
+                        <input class="form-input" id="name" name="name" type="text">
+                        <h2>E-mail</h2>
+                        <input class="form-input" id="email" name="email" type="text">
+                        <h2>Message</h2>
+                        <textarea class="form-input" id="message" name="message"></textarea>
+                        <h2>Enter number between 1 and 4</h2>
+                        <input class="form-input" id="number" name="number" type="text">
+                        <button type="submit" onclick="return ContactValidation()">SEND</button>
+                    </form>         
+                </div> 
+            </div>      
+        </section>
+
+        <div id="footer">  
+            <ul>
+                <li class="social-parent"><a class="social" href="https://www.facebook.com/georgs.toliashvili" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                <li class="social-parent"><a class="social" href="https://github.com/FlasHGT" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+            </ul>
+        </div> 
+        
+        <script src="https://kit.fontawesome.com/0d63444a97.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/lightbox-plus-jquery.min.js"></script>
+        <script src="js/main.js"></script> 
+    </body>
+</html>
