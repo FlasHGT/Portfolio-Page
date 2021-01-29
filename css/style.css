@@ -50,8 +50,7 @@ nav {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1em;
-    padding: 0px;
-    padding-bottom: 5px;
+    padding: 0px 0px 5px 0px;
     border-bottom: 2px solid white;
 }
 
@@ -174,7 +173,7 @@ nav {
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px #000000;
     border: none;
-    outline:none;
+    outline: none;
     font-size: 1.1em;
     color: rgb(137, 26, 26);
 }
@@ -388,7 +387,6 @@ div.slide-container {
     background: none;
     border-radius: 5px;
     border: 1px solid white;
-    margin-bottom: 20px;
 }
 
 #contact-form input {
@@ -582,10 +580,6 @@ div.slide-container {
     #home-wrapper {
         text-align: center;
         padding: 35vh 10vh;
-    }
-    
-    .rotate {
-        left: 82.5%;
     }
 
     #slider {
