@@ -1,9 +1,8 @@
 # Portfolio-Page
-  This was my second attempt at creating a portfolio webpage. I wasn't happy with the first one, because it looked like a webpage from the mid 90s.
-  So I decided to broaden my web development knowledge and most importantly learn Javascript. Next up on my web development journey is learning a javascript framework, for example, React.
+  This is purely a responsive front-end web application. Just like the title says, it's a portfolio webpage, which displays my projects and has some information about me, currently I'm hosting it using the Github pages, which means that the contact form doesn't work. 
 # What I Learned
   <ul>
-    <li>The basics of JavaScript</li>
-    <li>CSS</li>
-    <li>HTML</li>
+    <li>Improved my understanding of Javascript</li>
+    <li>Improved my understanding of CSS</li>
+    <li>Improved my understanding of HTML</li>
   </ul>
